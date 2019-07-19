@@ -1,0 +1,85 @@
+﻿
+(function(){
+
+    /*数据统计*/
+
+    var spURL = "http://api.t.qq.com/ads/dereport.php";
+
+    if(location.host =="zhaoren.t.qq.com"){
+        MI.ajax({
+            url: spURL + "?type=zr_js_load&arg=" + encodeURIComponent(location.href)
+        });
+    }
+    
+    window.displayReport = function(report){
+        
+        MI.ajax({
+            url: "http://api.t.qq.com/charge/displayReport",
+            type: "get",
+            data: report,
+            success:function(data){}
+        });
+        
+        /*try {        
+            var i = new Image(1, 1);
+            i.src = "http://p.t.qq.com/ads/displayReport.php?d="+ +new Date()+"&"+report,
+            delete i;
+        } catch(e) {}
+        */
+        
+    };    
+
+    window.getAd = getAd = function(ad){
+        var start =  new Date;
+      
+        ad && MI.ajax({
+            url: spURL + "?type=init&arg="+ad
+        });
+
+        ad&&MI.ajax({
+            url: 'http://api.t.qq.com/ads/getDisplayAd.php',
+            data:{
+                pos:ad
+            },
+            success:function(data){
+
+                var time = new Date -  start;
+
+                data = MI.json(data);
+                if(data.result==0) {                    
+                    UI.each(data.data,function(obj,key){
+                        $(key).innerHTML = obj.html;
+                        $(key).style.display = "";
+                        displayReport(obj.displayReport);
+                    });
+                    //data.adStyle 做出区分 交互。
+                }
+
+                var otherstr =time+"|"+ad+"|"+data.result+"|"+(MI.user||{}).account
+                if(data.result == -2){
+                    otherstr =  otherstr + '|'+ document.cookie.replace(/\|/g,'_@_'); 
+                }
+
+                MI.ajax({
+                    url: spURL + "?type=finish&arg=ok|"+otherstr
+                });           
+            },
+            timeout:5000,
+            fail:function(){
+                var time = new Date -  start;
+                MI.ajax({
+                    url: spURL + "?type=finish&arg=fail|"+time+"|"+ad
+                });
+            }
+        });
+    };
+
+    var ids= [];
+
+    UI.each($$('.wb_display_gg'),function(node){
+        ids.push(node.id);           
+    });
+
+    getAd(ids.join(','));
+
+})();/*  |xGv00|230f2f9ec3404b8d109f6ca0612e9945 */

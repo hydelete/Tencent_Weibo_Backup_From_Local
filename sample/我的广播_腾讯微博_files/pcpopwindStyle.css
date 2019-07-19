@@ -1,0 +1,39 @@
+﻿.banner_ad, .couplet_ad { margin: 0 auto; position: relative; z-index: 9999999; }
+.banner_ad { width: 1000px; height: 120px; overflow: hidden; }
+.couplet_ad { width: 120px; height: 270px; top: 30%; }
+.couplet_ad_left { left: 5%; }
+.couplet_ad_right { right: 5%; }
+.window_ad { width: 300px; height: 250px; padding: 5px; border: solid 2px #ddd; border-radius: 5px 5px 0px 0px; background: #fff; position: fixed; z-index: 9999999; }
+.banner_ad img.ad_img, .window_ad img.ad_img, .couplet_ad img.ad_img { width: 100%; }
+.float_ad { position: fixed; }
+.float_top { top: 0px; }
+.float_bottom { bottom: 3px; }
+.float_left { left: 0px; }
+.float_right { right: 0px; }
+.windowclose_btn { position: absolute; right: 0px; width: 65px; cursor: pointer; background: #999; z-index: 9999999; }
+.windowclose_btn:hover { background: #0066cc; }
+.windowclose_btn span { text-align: center; height: 20px; text-align: center; color: #fff; display: inline-block; float: left; }
+.windowclose_btn span.font { width: 40px; height: 20px; font-size: 12px; line-height: 18px; }
+.windowclose_btn span.closeicon { width: 20px; font-family: Arial; border-left: solid 2px #fff; font-size: 16px; line-height: 22px; }
+.coupletclose_btn { position: absolute; bottom: 0px; width: 120px; height: 20px; color: #fff; cursor: pointer; background: #999; z-index: 9999999; text-align: center; }
+.close_btn_top { top: -20px; }
+.slide_ad { width: 1000px; float: right; overflow: hidden; }
+.slide_ad table { margin: 0 auto; }
+.container { width: 1000px; margin: 0px auto 0 auto; }
+.container a img { }
+.container img { border: none; }
+.td_f a img { padding: 0px; margin: 0px; }
+.num { position: absolute; float: right; bottom: 0px; right: 0px; }
+.num li { margin: 1px; width: 7px; text-indent: -9999px; background: url(../img/flashbutton.png) no-repeat -11px -2px; float: left; height: 8px; cursor: pointer; }
+.num li.on { width: 7px; background: url(../img/flashbutton.png) no-repeat -1px -2px; height: 8px; }
+.rollpage { right: 0px; float: right; position: absolute; top: 0px; z-index: 999999999; width: 250px; height: 180px; }
+.rollpage img { z-index: 99; right: 0px; width: 50px; position: absolute; top: 0px; height: 52px; display: block; }
+.rollpage .msg_block { right: 0px; overflow: hidden; display: block; width: 50px; position: absolute; top: 0px; height: 50px; z-index: 999 }
+.rollpage .msg_block:after { content: ''; position: absolute; width: 357px; height: 368px; left: -159px; top: 57px; z-index: 9999999; -webkit-transform: rotate(35.5deg); transform: rotate(35.5deg); }
+.embed-bgimg { position: absolute; right: 0px; top: 0px; background: #fff; z-index: 0; width: 300px; height: 320px; }
+.embed-bgimg img { position: absolute; right: 0px; top: 0px; }
+.embed-swf { position: absolute; right: 0px; top: 0px; z-index: 1; }
+.closepf { position: absolute; color: #ff6a00; display: none; cursor: pointer; font-size: 22px; right: 140px; bottom: 60px; width: 25px; height: 24px; z-index: 99999999; background: url(../img/closepf.png); }
+.closeop { position: absolute; color: #ff6a00; display: none; cursor: pointer; font-size: 22px; right: 23px; top: 25px; width: 25px; height: 24px; z-index: 9999; background: url(../img/closeop.png); }
+.flash_alink { display: block; position: absolute; left: 0px; z-index: 999999; font-size: 9999999px; text-indent: -99999px; }
+.pfix { position:fixed; }
