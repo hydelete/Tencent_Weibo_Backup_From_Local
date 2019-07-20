@@ -17,6 +17,7 @@ def isPostfixWith(str, postfixer):
 
 def imgDownload(urlTar, filename = "", folder = "images"):
 	logging.info("URL = " + urlTar)
+	ret_ = True  # true if no issue of downloading
 	
 	#create folder save image
 	if not os.path.exists(folder):
@@ -56,6 +57,7 @@ def imgDownload(urlTar, filename = "", folder = "images"):
 		print(e)
 		print("地址不对，或者网络故障")
 		logging.info("error occurring, URL: " + urlTar)
+		ret_ = False
 	else:
 		#meta = u.info()
 		#file_size = int(meta.getheaders("Content-Length")[0])
@@ -77,7 +79,8 @@ def imgDownload(urlTar, filename = "", folder = "images"):
 	finally:
 		if f is not None:
 			f.close()
-		
+	
+	return ret_
 
 if __name__ == "__main__":
 	imgDownload(urlTar, dirName)
