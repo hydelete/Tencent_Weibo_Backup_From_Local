@@ -1,6 +1,7 @@
 import os
 import logging
 from urllib import request
+from pathlib import Path
 
 urlTar = "https://abload.de/img/untitled2p3kyz.png"
 
@@ -52,7 +53,8 @@ def imgDownload(urlTar, filename = "", folder = "images"):
 	f = None
 	try:
 		u = request.urlopen(url = urlTar)
-		f = open( folder + "\\" + file_name, 'wb')
+		tarFolder = Path(folder)
+		f = open( tarFolder / file_name, 'wb')
 	except Exception as e: 
 		print(e)
 		print("地址不对，或者网络故障")

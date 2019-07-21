@@ -1,8 +1,10 @@
 import re
 from imgDownloader import imgDownload
 import time
+from pathlib import Path
 
-file = open("sample\我的广播_腾讯微博.html", "r", encoding='utf-8')
+sampleFolder = Path("sample")  #我的广播_腾讯微博.html
+file = open(sampleFolder / "我的广播_腾讯微博.html", "r", encoding='utf-8')
 
 htmlstr = file.read()
 
